@@ -220,11 +220,27 @@ this.getroottable().HexenHooks.hookPlayerPartyAndAssets <- function ()
 		}
 	});
 
-	//Hook to allow all human to ride
-	::mods_hookExactClass("scripts/entity/tactical/human", function(o)
+	//Hook to allow player to ride
+	::mods_hookDescendants("scripts/entity/tactical/human", function(o)
 	{
 		o.m.Mount <- null;
-		o.m.ExcludedMount <- [];
+		o.m.ExcludedMount <- this.Const.GoblinRider.ID;
+		
+		o.onActorUnequip <- function( _item )
+		{
+			if (_item.getSlotType() == this.Const.ItemSlot.Accessory)
+			{
+				this.m.Mount.onAccessoryUnequip();
+			}
+		}
+
+		o.onActorequip <- function( _item )
+		{
+			if (_item.getSlotType() == this.Const.ItemSlot.Accessory)
+			{
+				this.m.Mount.onAccessoryEquip(_item);
+			}
+		}		
 	});
 
 	//Hook to help non-human have more suitable health recovery
