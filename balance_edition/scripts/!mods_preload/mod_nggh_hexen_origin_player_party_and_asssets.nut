@@ -224,7 +224,7 @@ this.getroottable().HexenHooks.hookPlayerPartyAndAssets <- function ()
 	::mods_hookExactClass("scripts/entity/tactical/human", function(o)
 	{
 		o.m.Mount <- null;
-		o.m.ExcludedMount <- this.Const.GoblinRider.ID;
+		o.m.ExcludedMount <- [];
 	});
 
 	//Hook to help non-human have more suitable health recovery
