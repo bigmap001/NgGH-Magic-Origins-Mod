@@ -72,7 +72,8 @@ gt.Const.GoblinRider <- {
 		HyenaFrenzied = 7,
 		Bear = 8,
 		Spider = 9,
-		COUNT = 10
+		Horse = 10
+		COUNT = 11
 	},
 
 	ID = [
@@ -92,7 +93,8 @@ gt.Const.GoblinRider <- {
 		"accessory.direwolf",
 		"accessory.direwolf_frenzied",
 		"accessory.spider",
-		"accessory.tempo_spider"
+		"accessory.tempo_spider",
+		"accessory.horse"
 	],
 
 	ShakeLayers = [
@@ -166,6 +168,9 @@ gt.Const.GoblinRider <- {
 		case "accessory.spider":
 		case "accessory.tempo_spider":
 			return this.Const.GoblinRider.Mounts.Spider;
+			
+		case "accessory.horse":
+			return this.Const.GoblinRider.Mounts.Horse;
 		}
 		
 		return null;
@@ -319,6 +324,16 @@ gt.Const.GoblinRider <- {
 			_appearance.Corpse = _item.m.IsRedBack ? "bust_spider_redback_body_01_dead" : "bust_spider_body_01_dead";
 			_appearance.CorpseHead = _item.m.IsRedBack ? "bust_spider_redback_head_01_dead" : "bust_spider_head_01_dead";
 			break;
+			
+		case "accessory.horse":
+			_appearance.Flipping = true;
+			_appearance.Scale = 0.9;
+			_appearance.Body = "bust_naked_body_10" + variant;
+			_appearance.Head = "bust_head_10" + variant;
+			_appearance.Injury = "bust_naked_body_100_injured";
+			_appearance.Corpse = "bust_naked_body_10" + variant + "_dead";
+			_appearance.CorpseHead = "bust_head_10" + variant + "_dead";
+			break;			
 		}
 
 		if (_appearance.Corpse == "")
@@ -735,5 +750,36 @@ gt.Const.GoblinRiderMounts <- [
 			"sounds/enemies/dlc2/giant_spider_idle_16.wav"
 		],
 	},
+	
+	//10 - Horse
+	{
+		Attributes = "LegendHorse",
+		Skills = ["actives/legend_horse_kick", "perks/perk_legend_horse_movement", "perks/perk_horse_charge", "perks/perk_legend_horse_pirouette"],
+		Flags = ["ride_horse"],
+		Sprite = [
+			[-12, 15], //For rider
+			[0, -15], //For mount
+		],
+		MountedBonus = { ActionPoints = 4, Stamina = 0, Initiative = 0, MeleeDefense = 0, RangedDefense = -5, Threat = 0, },
+		SoundsOther1 = [
+			"sounds/misc/donkey_hurt_01.wav",
+			"sounds/misc/donkey_hurt_02.wav",
+			"sounds/misc/donkey_hurt_03.wav"
+		],
+		SoundsOther2 = [
+			"sounds/misc/donkey_death_01.wav",
+			"sounds/misc/donkey_death_02.wav"
+		],
+		SoundsIdle = [
+			"sounds/misc/donkey_idle_01.wav",
+			"sounds/misc/donkey_idle_02.wav",
+			"sounds/misc/donkey_idle_03.wav",
+			"sounds/misc/donkey_idle_04.wav",
+			"sounds/misc/donkey_idle_05.wav",
+			"sounds/misc/donkey_idle_06.wav",
+			"sounds/misc/donkey_idle_07.wav",
+			"sounds/misc/donkey_idle_08.wav"
+		],
+	},	
 ];
 

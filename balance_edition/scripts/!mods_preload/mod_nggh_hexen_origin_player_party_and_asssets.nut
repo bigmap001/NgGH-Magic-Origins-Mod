@@ -1,7 +1,7 @@
 this.getroottable().HexenHooks.hookPlayerPartyAndAssets <- function ()
 {
 	//update a new party strength calculation for hexe origin
-	::mods_hookNewObject("entity/world/player_party", function ( obj )
+	::mods_hookExactClass("entity/world/player_party", function ( obj )
 	{
 		local oldFunction = ::mods_getMember(obj, "updateStrength");
 		
@@ -218,6 +218,13 @@ this.getroottable().HexenHooks.hookPlayerPartyAndAssets <- function ()
 		{
 			newFunction();
 		}
+	});
+
+	//Hook to allow all human to ride
+	::mods_hookExactClass("scripts/entity/tactical/human", function(o)
+	{
+		o.m.Mount <- null;
+		o.m.ExcludedMount <- this.Const.GoblinRider.ID;
 	});
 
 	//Hook to help non-human have more suitable health recovery

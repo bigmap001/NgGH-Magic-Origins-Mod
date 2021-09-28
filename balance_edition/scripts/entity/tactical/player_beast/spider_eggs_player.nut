@@ -222,6 +222,7 @@ this.spider_eggs_player <- this.inherit("scripts/entity/tactical/player_beast", 
 		this.m.AIAgent = this.new("scripts/ai/tactical/spider_egg_player_agent");
 		this.m.AIAgent.setActor(this);
 		this.m.Flags.add("egg");
+		this.m.ExcludedMount.push("accessory.horse");
 	}
 
 	function onRender()

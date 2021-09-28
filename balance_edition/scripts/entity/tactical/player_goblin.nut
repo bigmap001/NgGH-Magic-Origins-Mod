@@ -197,6 +197,7 @@ this.player_goblin <- this.inherit("scripts/entity/tactical/player", {
 		this.m.LifetimeStats.Tags = this.new("scripts/tools/tag_collection");
 		this.m.ExcludedMount.push("accessory.spider");
 		this.m.ExcludedMount.push("accessory.tempo_spider");
+		this.m.ExcludedMount.push("accessory.horse");
 	}
 
 	function onInit()
