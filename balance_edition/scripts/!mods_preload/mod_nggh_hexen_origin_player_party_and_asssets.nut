@@ -226,6 +226,16 @@ this.getroottable().HexenHooks.hookPlayerPartyAndAssets <- function ()
 		o.m.Mount <- null;
 		o.m.ExcludedMount <- this.Const.GoblinRider.ID;
 		
+		o.getExcludedMount <- function()
+		{
+			return this.m.ExcludedMount;
+		}
+	
+		o.isMounted <- function()
+		{
+			return this.m.Mount.isMounted();
+		}
+		
 		o.onActorUnequip <- function( _item )
 		{
 			if (_item.getSlotType() == this.Const.ItemSlot.Accessory)
@@ -240,7 +250,7 @@ this.getroottable().HexenHooks.hookPlayerPartyAndAssets <- function ()
 			{
 				this.m.Mount.onAccessoryEquip(_item);
 			}
-		}		
+		}
 	});
 
 	//Hook to help non-human have more suitable health recovery
