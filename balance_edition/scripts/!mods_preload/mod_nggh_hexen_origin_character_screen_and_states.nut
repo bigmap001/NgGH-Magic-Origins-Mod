@@ -643,7 +643,7 @@ this.getroottable().HexenHooks.hookCharacterScreenAndStates <- function ()
 							lastStashIdx = j + 1;
 							stashItems[j].onAddedToStash(this.Stash.getID());
 
-							if (!soundPlayed)
+							if (!soundPlayed && "playInventorySound" in stashItems[j])
 							{
 								soundPlayed = true;
 								stashItems[j].playInventorySound(this.Const.Items.InventoryEventType.PlacedInBag);
