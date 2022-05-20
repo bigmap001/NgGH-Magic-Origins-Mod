@@ -1142,7 +1142,7 @@ this.getroottable().HexenHooks.hookPerkDefs <- function ()
 		]
 	};
 
-	gt.Const.Perks.LindwurmTree <- {
+	gt.Const.Perks.MCLindwurmTree <- {
 		ID = "Lindwurm",
 		Name = "Lindwurm",
 		Descriptions = ["lindwurm"],
@@ -1756,7 +1756,7 @@ this.getroottable().HexenHooks.hookPerkDefs <- function ()
 		[]
 	];
 
-	gt.Const.PerksCharmedUnit.LindwurmTree <- [
+	gt.Const.PerksCharmedUnit.MCLindwurmTree <- [
 		[
 			gt.Const.Perks.PerkDefs.Pathfinder,
 			gt.Const.Perks.PerkDefs.SunderingStrikes,
